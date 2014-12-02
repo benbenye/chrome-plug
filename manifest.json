@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
-    "name": "我的时钟",
+    "name": "去除重定向",
     "version": "1.0",
-    "description": "我的第一个Chrome扩展",
+    "description": "谷歌暴力去除重定向",
     "icons": {
         "16": "images/icon16.png",
         "48": "images/icon48.png",
@@ -13,13 +13,15 @@
             "19": "images/icon19.png",
             "38": "images/icon38.png"
         },
-        "default_title": "我的时钟",
+        "default_title": "去除重定向",
         "default_popup": "index.html"
     },
     "content_scripts":  [
-        {
-            "matches": ["*://www.google.com/","*://www.google.com.hk/"],
+        { 
+            "matches": [ "https://www.google.com.hk/*", "*://www.google.com/*" ],  
+            "run_at": "document_end",
             "js": ["js/getGoogleAs.js"]
         }
-    ]
+    ],
+   "converted_from_user_script": true
 }
