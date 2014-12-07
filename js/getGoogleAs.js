@@ -1,13 +1,18 @@
-var searchs = document.getElementsByClassName('r');
+delete document.scripts;
+var elt = document.createElement("script");
+elt.innerHTML = "delete window.google;delete window.rwt;console.log('hello world')"
+document.body.appendChild(elt);
 
-for (var i = 0; i < searchs.length; ++i) {
-	var _href = searchs[i].childNodes[0].getAttribute('href'),
-		_text = searchs[i].childNodes[0].innerText,
-		_text = document.createTextNode(_text);
-console.log(searchs[i].childNodes[0]);
-	// searchs[i].childNodes[0].removeAttribute('href');
-	searchs[i].childNodes[0].removeAttribute('onmousedown');
-	searchs[i].childNodes[0].removeAttribute('onclick');
-	searchs[i].childNodes[0].removeAttribute('target');
-	searchs[i].childNodes[0].removeAttribute('data-href');
+var scrp = document.getElementsByTagName('script');
+
+for (var i = 0,l = scrp.length; i < l; ++i) {
+    scrp[0].remove();
 }
+
+//window.setInterval(function () {
+//    if(window.google) {
+//        delete window.google;
+//        rwt = undefined
+//        console.log('delete window.google');
+//    }
+//}, 1000)
