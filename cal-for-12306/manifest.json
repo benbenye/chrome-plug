@@ -1,0 +1,28 @@
+{
+    "manifest_version": 2,
+    "name": "12306行程表",
+    "version": "1.0",
+    "description": "我的第一个Chrome扩展",
+    "icons": {
+        "16": "img/5770486.png"
+    },
+    "browser_action": {
+        "default_icon": {
+            "16": "img/5770486.png"
+        },
+        "default_title": "我的时钟",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://kyfw.12306.cn/*"],
+            "js": ["js/jQuery-2.2.0.js","js/cals.js"]
+        }
+    ],
+    "permissions": [
+        "webRequest",
+        "webRequestBlocking",
+        "*://www.chunbo.com//*",
+        "*://kyfw.12306.cn/*"
+    ]
+}
