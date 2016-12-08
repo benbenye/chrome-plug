@@ -69,7 +69,7 @@ function onText(data) {
             if(ele.innerText == start_time.getDate()){
               ele.style.backgroundColor = 'red';
               ele.style.color = '#fff';
-              ele.innerHtml = '<div>this is the tickets detail information </div>'
+              ele.innerHTML = '<div>this is the tickets detail information </div>'
             }
           })
         })
