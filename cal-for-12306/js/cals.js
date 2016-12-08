@@ -67,9 +67,16 @@ function onText(data) {
         uls_arr.forEach(e=>{
           Array.prototype.slice.call(e.children).forEach(ele=>{
             if(ele.innerText == start_time.getDate()){
-              ele.style.backgroundColor = 'red';
-              ele.style.color = '#fff';
-              ele.innerHTML = '<div>this is the tickets detail information </div>'
+              ele.className = 'active';
+              let passenger_arr = i.tickets.map(ticket=>{
+                return ticket.passengerDTO.passenger_name+':'+ticket.coach_name +'车'+ticket.seat_name
+              })
+              ele.innerHTML = start_time.getDate()+'<div class="info-box">'
+                + '车次：'+i.train_code_page
+                + '<br>发车：'+ i.from_station_name_page.join() +'-'+ i.start_time_page
+                + '<br>到站：'+ i.to_station_name_page.join() +'-'+ i.arrive_time_page
+                + '<br>乘车人：' + passenger_arr.join('<br>')
+              '</div>'
             }
           })
         })
@@ -136,7 +143,7 @@ BbyCal.prototype.makeWeekLiDom  = function(month) {
 BbyCal.prototype.makeStyle = function() {
   var that = this;
   var _style = document.createElement('style');
-  var _styleStr = '.bby-month{display:inline-block; margin-right:20px;} .bby-month ul li{display:inline-block; width:30px; border:1px solid #fff; background-color:#ccc;}'
+  var _styleStr = '.bby-month{display:inline-block; margin-right:20px;} .bby-month ul li{display:inline-block; width:30px; border:1px solid #fff; background-color:#ccc;}.bby-month .active{background-color: #f17373;color: #fff;position: relative;}.bby-month .active .info-box{position: absolute;width: 200px;background-color: rgba(34,54,62,.5);border: 1px solid #ccc;padding: 10px;visibility: hidden;}.bby-month .active:hover .info-box{visibility: visible;}'
   var _styleTextNode = document.createTextNode(_styleStr);
   _style.appendChild(_styleTextNode);
   document.body.parentElement.insertBefore(_style, document.body);
